@@ -1,0 +1,23 @@
+//Emily Flood
+//February 4, 2020
+/*This piece of code requires a DC motor, a motor driver, and an Arduino Uno to fully function.
+  When the button is pushed, the motor spins clockwise. When it is not pushed, the motor spins
+  counter-clockwise.*/
+
+void setup() {
+  // The L9110 can control 2 motors. Each needs 2 pins.
+  pinMode(11, OUTPUT); //pin 11 assigned to the motor
+  pinMode(12, OUTPUT); //pin 12 assigned to the motor
+  pinMode(8, INPUT); //pin 8 assigned to the button
+}
+void loop() {
+  /*this if statement will determine which direction the motor spins in depending
+    on whether the button is being pushed or not.*/
+  if (digitalRead(8) == HIGH) { //if the button is pushed
+    digitalWrite(11, HIGH); // This will make the motor spin clockwise
+    digitalWrite(12, LOW); // Both lines are needed
+  } else { //if the button is not pushed
+    digitalWrite(11, LOW); // This will make the motor spin counter-clockwise
+    digitalWrite(12, HIGH); // Both lines are needed.
+  }
+}
